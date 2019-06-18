@@ -1,0 +1,21 @@
+FROM fedora
+#this is bae image ehere we want some change
+
+#From check image in local if not present then pull it from DH
+
+MAINTAINER j.ayushbhatevera.21@gmail.com
+
+#info about image creator
+RUN yum install httpd -y
+#launch a container and do the changes
+
+COPY myweb.html  /var/www/html
+
+#source base os --> container
+#aap is ke step uper niche ni ker sakete ho
+
+EXPOSE 80
+#we want to use HTTP proto inside container
+CMD httpd -DFOREGROUND   #ENTRYPOINT httpd /bin/bash
+#by default process of container
+#ulternative way of starting httpd sevice
